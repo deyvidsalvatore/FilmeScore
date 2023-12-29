@@ -1,9 +1,13 @@
 package com.deyvidsalvatore.filmes.backend.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,6 +25,9 @@ public class Filme {
 	private Integer contador;
 	
 	private String imagem;
+	
+	@OneToMany(mappedBy = "id.filme")
+	private Set<Score> scores = new HashSet<Score>();
 
 	public Filme() {}
 
@@ -70,6 +77,14 @@ public class Filme {
 
 	public void setImagem(String imagem) {
 		this.imagem = imagem;
+	}
+
+	public Set<Score> getScores() {
+		return scores;
+	}
+
+	public void setScores(Set<Score> scores) {
+		this.scores = scores;
 	}
 	
 }
