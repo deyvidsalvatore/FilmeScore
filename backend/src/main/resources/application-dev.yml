@@ -6,6 +6,15 @@ spring:
     password: Developer@100Senha!
     
   jpa:
+    defer-datasource-initialization: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+        
+  sql:
+    init:
+      schema-locations:
+      - classpath:create.sql
+      data-locations:
+      - classpath:import.sql
+      mode: never # Altere isso para always, se precisar dos dados
