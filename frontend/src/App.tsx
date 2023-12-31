@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Lista from "./pages/Lista";
-import Formulario from "./pages/Formulario";
+import Form from "./pages/Formulario";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Lista /> } />
           <Route path="/form">
-            <Route path=":filmeId" element={<Formulario />}/>
+            <Route path=":filmeId" element={<Form />}/>
           </Route>
         </Routes>
     </BrowserRouter>
